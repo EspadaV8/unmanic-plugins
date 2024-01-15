@@ -10,8 +10,12 @@
   },
   "vendorCopy": [
     {
+      "from": "node_modules/datatables.net",
+      "to": "static/vendor/datatables.net"
+    },
+    {
       "from": "node_modules/datatables.net-dt",
-      "to": "static/vendor/datatables"
+      "to": "static/vendor/datatables.net-dt"
     },
     {
       "from": "node_modules/jquery",
