@@ -1,5 +1,6 @@
 .light {
   --q-card-head: #f5f5f5;
+  --q-card-head-hover: #e7e7e7;
   --q-card: #ffffff;
   --q-page: #ffffff;
   --q-primary: #002e5c;
@@ -10,6 +11,7 @@
 
 .dark {
   --q-card-head: #212121;
+  --q-card-head-hover: #383838;
   --q-card: #181818;
   --q-page: #121212;
   --q-primary: #009fdd;
@@ -20,10 +22,6 @@
 
 .hidden {
   display: none;
-}
-
-table.dataTable {
-  background-color: #ffffff;
 }
 
 table.dataTable td {
@@ -102,7 +100,7 @@ button.collapsible.active::after {
 
 .active,
 .collapsible:hover {
-  background-color: #555;
+  background-color: var(--q-card-head-hover);
 }
 
 .content {
@@ -136,7 +134,7 @@ button.collapsible.active::after {
 }
 
 .view-btn {
-  background-color: var(--q-secondary) !important;
+  background-color: var(--q-secondary);
   border-radius: 5px;
   border: none;
   color: #ffffff;
@@ -150,6 +148,10 @@ button.collapsible.active::after {
   text-decoration: none;
   vertical-align: middle;
   white-space: nowrap;
+}
+
+.view-btn:hover {
+  background-color: var(--q-primary);
 }
 
 .top-content {
