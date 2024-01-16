@@ -29,79 +29,72 @@
 
 <div class="top-content">
     <div class="charts">
-
         <div class="row">
-
-            <div class="column">
-                <div class="card">
-                    <div class="card-content">
-                        <button type="button" class="collapsible">
-                            Individual File Size Change
-                        </button>
-                        <div class="content" style="display:block;">
-                            <input id="selected_task_id" type="hidden" name="selected_task_id" value=""/>
-
-                            <div id="task_details">
-                                <div id="file_size_chart">
-                                    There was an issue showing this chart
-                                </div>
-                            </div>
-
-                            <span id="selected_task_name"
-                                  class="car-header">(Select a task from the table below)</span>
+            <div class="card">
+                <div class="card-content">
+                    <button type="button" class="collapsible">
+                        Total File Size Changed
+                    </button>
+                    <div class="content" style="display:block;">
+                        <div id="total_size_chart">
+                            There was an issue showing this chart
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="column">
-                <div class="card">
-                    <div class="card-content">
-                        <button type="button" class="collapsible">
-                            Total File Size Changed
-                        </button>
-                        <div class="content" style="display:block;">
-                            <div id="total_size_chart">
-                                There was an issue showing this chart
-                            </div>
-
-                            <span class="car-header"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-
     </div>
 </div>
 
 <div class="tables">
+    <div class="row">
+        <div class="column">
+            <table id="history_completed_tasks_table" class="dataTable display" style="width:100%">
+                <thead>
+                <tr>
+                    <!--Headers are overwritten in JS datatable config-->
+                    <th>New File Name</th>
+                    <th>Start Time</th>
+                    <th>Finish Time</th>
+                    <th>Status</th>
+                    <th>View Details</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <!--Headers are overwritten in JS datatable config-->
+                    <th>New File Name</th>
+                    <th>Start Time</th>
+                    <th>Finish Time</th>
+                    <th>Status</th>
+                    <th>View Details</th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <button type="button" class="collapsible">
+                        Individual File Size Change
+                    </button>
+                    <div class="content" style="display:block;">
+                        <input id="selected_task_id" type="hidden" name="selected_task_id" value=""/>
 
-    <hr>
+                        <div id="task_details">
+                            <div id="file_size_chart">
+                                There was an issue showing this chart
+                            </div>
+                        </div>
 
-    <table id="history_completed_tasks_table" class="dataTable display" style="width:100%">
-        <thead>
-        <tr>
-            <!--Headers are overwritten in JS datatable config-->
-            <th>Name</th>
-            <th>Started</th>
-            <th>Completed</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tfoot>
-        <tr>
-            <!--Headers are overwritten in JS datatable config-->
-            <th>Name</th>
-            <th>Started</th>
-            <th>Completed</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
-        </tfoot>
-    </table>
+                        <div id="selected_task_name" class="car-header">
+                            (Select a task from the table below)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <a href="#top-of-page" class="top-of-page-link" data-visible="true">

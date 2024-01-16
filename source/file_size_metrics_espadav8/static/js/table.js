@@ -75,10 +75,10 @@ var CompletedTasksDatatable = function () {
             ],
 
             lengthMenu: [
-                [7, 10, 20, 50, 100, 500],
-                [7, 10, 20, 50, 100, 500] // change per page values here
+                [7, 10, 15, 20, 50, 100, 500],
+                [7, 10, 15, 20, 50, 100, 500] // change per page values here
             ],
-            pageLength: 7, // default record count per page
+            pageLength: 15, // default record count per page
             order: [
                 [2, "desc"]
             ]
