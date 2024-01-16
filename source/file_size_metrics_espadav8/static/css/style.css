@@ -160,18 +160,17 @@ button.collapsible.active::after {
   background-color: var(--q-primary);
 }
 
-.top-content {
-  position: fixed;
-  width: 100%;
-  z-index: 15;
-}
-
 .charts {
   max-height: 550px;
 }
 
 .tables {
-  padding-top: 550px;
+  padding-top: 20px;
+}
+
+#individual-file-size-chart.fixed {
+  position: fixed;
+  top: 20px;
 }
 
 /* Responsive columns */

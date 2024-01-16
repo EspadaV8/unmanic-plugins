@@ -73,7 +73,7 @@
             </table>
         </div>
         <div class="column">
-            <div class="card">
+            <div class="card" id="individual_file_size_chart">
                 <div class="card-content">
                     <button type="button" class="collapsible">
                         Individual File Size Change
@@ -149,6 +149,22 @@
     }
 </script>
 
+    <script>
+      (function (window) {
+        window.onscroll = function (e) {
+          const chart = document.getElementById("individual_file_size_chart");
+          const table = document.getElementById("history_completed_tasks_table_wrapper");
+
+          if (window.scrollY > 400) {
+            chart.style.width = table.getBoundingClientRect().width + 'px';
+            chart.classList.add('fixed');
+          } else {
+            chart.classList.remove('fixed');
+            chart.style.width = null;
+          }
+        }
+      })(window);
+    </script>
 <!-- ######## END SCRIPTS -->
 
 </body>
