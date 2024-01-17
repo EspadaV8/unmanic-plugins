@@ -20,7 +20,7 @@ const CompletedTasksDatatable = (function () {
 
     return `<a class="view-btn"
           onclick="viewConversionDetails(${$.trim(row_id)});">
-            View details &#x25B2;
+            View details
       </a>`;
   };
 
