@@ -1,37 +1,30 @@
-var viewConversionDetails = function (jobId) {
+const viewConversionDetails = function (jobId) {
   $("#selected_task_id").val(jobId).triggerHandler("change");
 };
 
-var CompletedTasksDatatable = (function () {
-  var recordName = function (task_label) {
-    return '<span class="wrap"> ' + task_label + " </span>";
+const CompletedTasksDatatable = (function () {
+  const recordName = function (task_label) {
+    return `<span class="wrap"> ${task_label} </span>`;
   };
 
-  var recordSuccessStatus = function (task_success) {
-    var html = "";
-
+  const recordSuccessStatus = function (task_success) {
     if (task_success) {
-      html = '<span class="label label-sm label-success"> Success </span>';
-    } else {
-      html = '<span class="label label-sm label-danger"> Failed </span>';
+      return '<span class="label label-sm label-success"> Success </span>';
     }
 
-    return html;
+    return '<span class="label label-sm label-danger"> Failed </span>';
   };
 
-  var recordActionButton = function (data) {
-    var row_id = data.id;
+  const recordActionButton = function (data) {
+    const row_id = data.id;
 
-    return (
-      '<a class="view-btn" ' +
-      'onclick="viewConversionDetails(' +
-      $.trim(row_id) +
-      ');"> View details &#x25B2;\n' +
-      "</a>"
-    );
+    return `<a class="view-btn"
+          onclick="viewConversionDetails(${$.trim(row_id)});">
+            View details &#x25B2;
+      </a>`;
   };
 
-  var buildTable = function () {
+  const buildTable = function () {
     $("#history_completed_tasks_table").DataTable({
       processing: true,
       serverSide: true,
