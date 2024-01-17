@@ -1,5 +1,5 @@
 {
-  "author": "EspadaV8",
+  "author": "Josh.5, EspadaV8",
   "compatibility": [1, 2],
   "description": "Aggregate changes in file size metrics for processed files and add a data panel for displaying the results.",
   "icon": "https://raw.githubusercontent.com/Josh5/unmanic.plugin.file_size_metrics/master/icon.png",

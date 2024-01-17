@@ -29,8 +29,8 @@ const CompletedTasksFileSizeDiffChart = (function () {
   const default_bar_colour = "#555";
   const positive_bar_colour = "var(--q-positive)";
   const negative_bar_colour = "var(--q-negative)";
-  const text_colour = "var(--q-text, #555)";
-  const subtext_colour = "var(--q-subtext, #ccc)";
+  const text_colour = "var(--q-text)";
+  const subtext_colour = "var(--q-subtext)";
   const chart_background = "var(--q-card)";
 
   let chart_title = "(Select a task from the table below)";
@@ -174,7 +174,7 @@ const CompletedTasksFileSizeDiffChart = (function () {
       },
     });
 
-    let newSeriesData = [
+    const newSeriesData = [
       {
         name: "New",
         data: [0, destination_file_size],
@@ -235,7 +235,7 @@ const CompletedTasksFileSizeDiffChart = (function () {
       },
     });
 
-    let newSeriesData = [
+    const newSeriesData = [
       {
         name: "After",
         data: [0, destination_total_size],
@@ -265,8 +265,8 @@ const CompletedTasksFileSizeDiffChart = (function () {
       let source_abspath = "";
       let destination_abspath = "";
 
-      for (let i = 0; i < data.length; i++) {
-        let item = data[i];
+      for (const i = 0; i < data.length; i++) {
+        const item = data[i];
 
         if (item.type === "source") {
           source_file_size = Number(item.size);
@@ -298,7 +298,8 @@ const CompletedTasksFileSizeDiffChart = (function () {
   };
 
   const watch = function () {
-    let selectedTaskId = $("#selected_task_id");
+    const selectedTaskId = $("#selected_task_id");
+
     selectedTaskId
       .on("change", function () {
         if (this.value !== "") {
