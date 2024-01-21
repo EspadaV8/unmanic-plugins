@@ -173,6 +173,26 @@ button.collapsible.active::after {
   top: 20px;
 }
 
+.q-badge {
+  border-radius: 4px;
+  color: #fff;
+  display: inline;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  min-height: 12px;
+  padding: 2px 6px;
+  vertical-align: initial;
+}
+
+.q-badge.success {
+  background: var(--q-positive);
+}
+
+.q-badge.failed {
+  background: var(--q-negative);
+}
+
 /* Responsive columns */
 @media screen and (max-width: 600px) {
   .top-content {

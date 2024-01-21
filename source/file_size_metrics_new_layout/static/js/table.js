@@ -3,25 +3,12 @@ const viewConversionDetails = function (jobId) {
 };
 
 const CompletedTasksDatatable = (function () {
-  const recordName = function (task_label) {
-    return `<span class="wrap"> ${task_label} </span>`;
-  };
-
-  const recordSuccessStatus = function (task_success) {
+  const recordName = function (basename, type, { task_success } = row) {
     if (task_success) {
-      return '<span class="label label-sm label-success"> Success </span>';
+      return `<div class="q-badge success" role="alert">✔</div> ${basename}`;
     }
 
-    return '<span class="label label-sm label-danger"> Failed </span>';
-  };
-
-  const recordActionButton = function (data) {
-    const row_id = data.id;
-
-    return `<a class="view-btn"
-          onclick="viewConversionDetails(${$.trim(row_id)});">
-            View details
-      </a>`;
+    return `<div class="q-badge failed" role="alert">✖</div> ${basename}`;
   };
 
   const buildTable = function () {
@@ -44,6 +31,7 @@ const CompletedTasksDatatable = (function () {
           className: "basename",
           name: "basename",
           data: "basename",
+          render: recordName,
         },
         {
           targets: 1,
