@@ -25,7 +25,7 @@ const CompletedTasksDatatable = (function () {
   };
 
   const buildTable = function () {
-    $("#history_completed_tasks_table").DataTable({
+    const table = $("#history_completed_tasks_table").DataTable({
       processing: true,
       serverSide: true,
       ajax: {
@@ -58,21 +58,6 @@ const CompletedTasksDatatable = (function () {
           name: "finish_time",
           data: "finish_time",
         },
-        {
-          targets: 3,
-          title: "Status",
-          name: "task_success",
-          data: "task_success",
-          render: recordSuccessStatus,
-        },
-        {
-          targets: 4,
-          title: "View Details",
-          data: null,
-          searchable: false,
-          orderable: false,
-          mRender: recordActionButton,
-        },
       ],
       lengthMenu: [
         [7, 10, 15, 20, 50, 100, 500],
@@ -80,6 +65,12 @@ const CompletedTasksDatatable = (function () {
       ],
       pageLength: 15, // default record count per page
       order: [[2, "desc"]],
+    });
+
+    table.on("click", "tbody tr", function () {
+      const data = table.row(this).data();
+
+      viewConversionDetails(data.id);
     });
   };
 

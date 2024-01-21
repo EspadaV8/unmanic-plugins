@@ -265,7 +265,7 @@ const CompletedTasksFileSizeDiffChart = (function () {
       let source_abspath = "";
       let destination_abspath = "";
 
-      for (const i = 0; i < data.length; i++) {
+      for (let i = 0; i < data.length; i++) {
         const item = data[i];
 
         if (item.type === "source") {
