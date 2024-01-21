@@ -41,6 +41,8 @@ table.dataTable td {
 html {
   background-color: var(--q-page);
   color: var(--q-text);
+  font-family: Roboto, -apple-system, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
 }
 
 /*Cards*/
@@ -57,8 +59,7 @@ html {
   font-size: 15px;
   height: 35px;
   outline: none;
-  padding-left: 18px;
-  padding-right: 18px;
+  padding: 10px 18px;
   text-align: left;
   width: 100%;
 }
@@ -69,14 +70,14 @@ html {
 
 .collapsible::after {
   color: var(--q-text);
-  content: "\2212";
+  content: "\002B";
   float: right;
   font-weight: bold;
   margin-left: 5px;
 }
 
 .collapsible.active::after {
-  content: "\002B";
+  content: "\2212";
 }
 
 .active,
@@ -108,31 +109,9 @@ html {
 /*Custom*/
 .car-header {
   display: block;
-  height: 100px;
   margin-top: 5px;
   min-height: 40px;
   text-align: left;
-}
-
-.view-btn {
-  background-color: var(--q-secondary);
-  border-radius: 5px;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 17px;
-  overflow: hidden;
-  padding: 6px 18px;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.view-btn:hover {
-  background-color: var(--q-primary);
 }
 
 .charts {
@@ -140,10 +119,9 @@ html {
 }
 
 .tables {
-  padding-top: 20px;
   display: flex;
-  grid-template-columns: 2fr 1fr;
   gap: 10px;
+  padding-top: 20px;
 }
 
 #individual_file_size_chart {
@@ -151,9 +129,8 @@ html {
   order: 2;
 }
 
-#individual-file-size-chart.fixed {
-  position: fixed;
-  top: 20px;
+#individual_file_size_chart .card {
+  position: relative;
 }
 
 #history_completed_tasks_table_wrapper {
@@ -181,14 +158,30 @@ html {
   background: var(--q-positive);
 }
 
+.q-badge.success:after {
+  content: "Success";
+}
+
 .q-badge.failed {
   background: var(--q-negative);
+}
+
+.q-badge.failed:after {
+  content: "Failed";
 }
 
 /* Responsive columns */
 @media screen and (max-width: 600px) {
   .top-content {
     position: inherit;
+  }
+
+  .q-badge.success:after {
+    content: "✔";
+  }
+
+  .q-badge.failed:after {
+    content: "✖";
   }
 
   .tables {
@@ -201,8 +194,17 @@ html {
     order: 1;
   }
 
+  #individual_file_size_chart .card {
+    position: static;
+  }
+
   #history_completed_tasks_table_wrapper {
     flex-grow: 1;
     order: 2;
+  }
+
+  #history_completed_tasks_table_wrapper,
+  #individual_file_size_chart {
+    padding-top: 20px;
   }
 }

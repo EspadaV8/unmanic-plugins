@@ -32,9 +32,9 @@
     <div class="top-content">
       <div class="charts">
         <div class="card">
-          <button type="button" class="collapsible card-header">
+          <div class="collapsible card-header active">
             Total File Size Changed
-          </button>
+          </div>
           <div class="card-content">
             <div class="content" style="display: block">
               <div id="total_size_chart">
@@ -64,25 +64,27 @@
         </tfoot>
       </table>
 
-      <div class="card" id="individual_file_size_chart">
-        <div class="card-header">Individual File Size Change</div>
-        <div class="card-content">
-          <div class="content" style="display: block">
-            <input
-              id="selected_task_id"
-              type="hidden"
-              name="selected_task_id"
-              value=""
-            />
+      <div id="individual_file_size_chart">
+        <div class="card">
+          <div class="card-header">Individual File Size Change</div>
+          <div class="card-content">
+            <div class="content" style="display: block">
+              <input
+                id="selected_task_id"
+                type="hidden"
+                name="selected_task_id"
+                value=""
+              />
 
-            <div id="task_details">
-              <div id="file_size_chart">
-                There was an issue showing this chart
+              <div id="task_details">
+                <div id="file_size_chart">
+                  There was an issue showing this chart
+                </div>
               </div>
-            </div>
 
-            <div id="selected_task_name" class="car-header">
-              (Select a task from the table below)
+              <div id="selected_task_name" class="car-header">
+                (Select a task from the table below)
+              </div>
             </div>
           </div>
         </div>
@@ -132,14 +134,16 @@
 
       for (i = 0; i < coll.length; i++) {
         coll[i].addEventListener("click", function () {
-          console.log("here");
           this.classList.toggle("active");
           var content = this.nextElementSibling;
-          if (content.style.display === "block") {
-            content.style.display = "none";
-          } else {
-            content.style.display = "block";
+
+          contentVisibility = "none";
+
+          if (this.classList.contains("active")) {
+            contentVisibility = "block";
           }
+
+          content.style.display = contentVisibility;
         });
       }
     </script>
@@ -162,22 +166,20 @@
     </script>
 
     <script>
-      //      (function (window) {
-      //        window.onscroll = function (e) {
-      //          const chart = document.getElementById("individual_file_size_chart");
-      //          const table = document.getElementById(
-      //            "history_completed_tasks_table_wrapper"
-      //          );
-      //
-      //          if (window.scrollY > 400) {
-      //            chart.style.width = table.getBoundingClientRect().width + "px";
-      //            chart.classList.add("fixed");
-      //          } else {
-      //            chart.classList.remove("fixed");
-      //            chart.style.width = null;
-      //          }
-      //        };
-      //      })(window);
+      (function (window) {
+        window.onscroll = function (e) {
+          const chart = $("#individual_file_size_chart .card:first")[0];
+          const topContentHeight = $(".top-content").height();
+
+          let newTop = "0px";
+
+          if (window.scrollY > topContentHeight) {
+            newTop = scrollY - topContentHeight + "px";
+          }
+
+          chart.style.top = newTop;
+        };
+      })(window);
     </script>
     <!-- ######## END SCRIPTS -->
   </body>
