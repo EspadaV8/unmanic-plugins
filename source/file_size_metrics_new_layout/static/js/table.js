@@ -5,10 +5,10 @@ const viewConversionDetails = function (jobId) {
 const CompletedTasksDatatable = (function () {
   const recordName = function (basename, type, { task_success } = row) {
     if (task_success) {
-      return `<div class="q-badge success" role="alert">✔</div> ${basename}`;
+      return `<div class="q-badge success">✔</div> ${basename}`;
     }
 
-    return `<div class="q-badge failed" role="alert">✖</div> ${basename}`;
+    return `<div class="q-badge failed">✖</div> ${basename}`;
   };
 
   const buildTable = function () {

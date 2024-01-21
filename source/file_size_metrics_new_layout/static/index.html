@@ -31,16 +31,14 @@
 
     <div class="top-content">
       <div class="charts">
-        <div class="row">
-          <div class="card">
-            <div class="card-content">
-              <button type="button" class="collapsible">
-                Total File Size Changed
-              </button>
-              <div class="content" style="display: block">
-                <div id="total_size_chart">
-                  There was an issue showing this chart
-                </div>
+        <div class="card">
+          <button type="button" class="collapsible card-header">
+            Total File Size Changed
+          </button>
+          <div class="card-content">
+            <div class="content" style="display: block">
+              <div id="total_size_chart">
+                There was an issue showing this chart
               </div>
             </div>
           </div>
@@ -49,55 +47,42 @@
     </div>
 
     <div class="tables">
-      <div class="row">
-        <div class="column">
-          <table
-            id="history_completed_tasks_table"
-            class="dataTable display"
-            style="width: 100%"
-          >
-            <thead>
-              <tr>
-                <!--Headers are overwritten in JS datatable config-->
-                <th>New File Name</th>
-                <th>Start Time</th>
-                <th>Finish Time</th>
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                <!--Headers are overwritten in JS datatable config-->
-                <th>New File Name</th>
-                <th>Start Time</th>
-                <th>Finish Time</th>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-        <div class="column">
-          <div class="card" id="individual_file_size_chart">
-            <div class="card-content">
-              <button type="button" class="collapsible">
-                Individual File Size Change
-              </button>
-              <div class="content" style="display: block">
-                <input
-                  id="selected_task_id"
-                  type="hidden"
-                  name="selected_task_id"
-                  value=""
-                />
+      <table id="history_completed_tasks_table" class="dataTable display">
+        <thead>
+          <tr>
+            <th>New File Name</th>
+            <th>Start Time</th>
+            <th>Finish Time</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>New File Name</th>
+            <th>Start Time</th>
+            <th>Finish Time</th>
+          </tr>
+        </tfoot>
+      </table>
 
-                <div id="task_details">
-                  <div id="file_size_chart">
-                    There was an issue showing this chart
-                  </div>
-                </div>
+      <div class="card" id="individual_file_size_chart">
+        <div class="card-header">Individual File Size Change</div>
+        <div class="card-content">
+          <div class="content" style="display: block">
+            <input
+              id="selected_task_id"
+              type="hidden"
+              name="selected_task_id"
+              value=""
+            />
 
-                <div id="selected_task_name" class="car-header">
-                  (Select a task from the table below)
-                </div>
+            <div id="task_details">
+              <div id="file_size_chart">
+                There was an issue showing this chart
               </div>
+            </div>
+
+            <div id="selected_task_name" class="car-header">
+              (Select a task from the table below)
             </div>
           </div>
         </div>
@@ -177,22 +162,22 @@
     </script>
 
     <script>
-      (function (window) {
-        window.onscroll = function (e) {
-          const chart = document.getElementById("individual_file_size_chart");
-          const table = document.getElementById(
-            "history_completed_tasks_table_wrapper"
-          );
-
-          if (window.scrollY > 400) {
-            chart.style.width = table.getBoundingClientRect().width + "px";
-            chart.classList.add("fixed");
-          } else {
-            chart.classList.remove("fixed");
-            chart.style.width = null;
-          }
-        };
-      })(window);
+      //      (function (window) {
+      //        window.onscroll = function (e) {
+      //          const chart = document.getElementById("individual_file_size_chart");
+      //          const table = document.getElementById(
+      //            "history_completed_tasks_table_wrapper"
+      //          );
+      //
+      //          if (window.scrollY > 400) {
+      //            chart.style.width = table.getBoundingClientRect().width + "px";
+      //            chart.classList.add("fixed");
+      //          } else {
+      //            chart.classList.remove("fixed");
+      //            chart.style.width = null;
+      //          }
+      //        };
+      //      })(window);
     </script>
     <!-- ######## END SCRIPTS -->
   </body>

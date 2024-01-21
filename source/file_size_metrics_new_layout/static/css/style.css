@@ -43,34 +43,6 @@ html {
   color: var(--q-text);
 }
 
-/* Float four columns side by side */
-.column {
-  float: left;
-  padding: 0 10px;
-  width: 50%;
-}
-
-/* Remove extra left and right margins, due to padding */
-.row {
-  margin: 0 -5px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    display: block;
-    margin-bottom: 20px;
-    width: 100%;
-  }
-}
-
 /*Cards*/
 .card {
   background-color: var(--q-card);
@@ -78,11 +50,10 @@ html {
   text-align: center;
 }
 
-.collapsible {
+.card-header {
   background-color: var(--q-card-head);
   border: none;
   color: var(--q-primary);
-  cursor: pointer;
   font-size: 15px;
   height: 35px;
   outline: none;
@@ -92,7 +63,11 @@ html {
   width: 100%;
 }
 
-button.collapsible::after {
+.collapsible {
+  cursor: pointer;
+}
+
+.collapsible::after {
   color: var(--q-text);
   content: "\2212";
   float: right;
@@ -100,7 +75,7 @@ button.collapsible::after {
   margin-left: 5px;
 }
 
-button.collapsible.active::after {
+.collapsible.active::after {
   content: "\002B";
 }
 
@@ -166,11 +141,28 @@ button.collapsible.active::after {
 
 .tables {
   padding-top: 20px;
+  display: flex;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+}
+
+#individual_file_size_chart {
+  flex-grow: 1;
+  order: 2;
 }
 
 #individual-file-size-chart.fixed {
   position: fixed;
   top: 20px;
+}
+
+#history_completed_tasks_table_wrapper {
+  flex-grow: 2;
+  order: 1;
+}
+
+#history_completed_tasks_table tbody tr {
+  cursor: pointer;
 }
 
 .q-badge {
@@ -201,5 +193,16 @@ button.collapsible.active::after {
 
   .tables {
     padding-top: 0;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  #individual_file_size_chart {
+    order: 1;
+  }
+
+  #history_completed_tasks_table_wrapper {
+    flex-grow: 1;
+    order: 2;
   }
 }
