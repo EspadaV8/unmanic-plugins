@@ -13,6 +13,7 @@ const CompletedTasksDatatable = (function () {
 
   const buildTable = function () {
     const table = $("#history_completed_tasks_table").DataTable({
+      autoWidth: false,
       processing: true,
       serverSide: true,
       ajax: {
