@@ -56,10 +56,19 @@ const CompletedTasksDatatable = (function () {
       order: [[2, "desc"]],
     });
 
-    table.on("click", "tbody tr", function () {
+    table.on("click", "tbody tr", function (e) {
       const data = table.row(this).data();
+      const classList = e.currentTarget.classList;
 
-      viewConversionDetails(data.id);
+      if (classList.contains("selected") === false) {
+        table
+          .rows(".selected")
+          .nodes()
+          .each((row) => row.classList.remove("selected"));
+        classList.add("selected");
+
+        viewConversionDetails(data.id);
+      }
     });
   };
 
