@@ -170,6 +170,10 @@ html {
   content: "Failed";
 }
 
+.basename .name {
+  text-decoration: underline dashed;
+}
+
 /* Responsive columns */
 @media screen and (max-width: 940px) {
   .top-content {
