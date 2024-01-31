@@ -119,13 +119,13 @@ html {
 }
 
 .tables {
-  display: flex;
+  display: grid;
   gap: 10px;
+  grid-template-columns: 66% 34%;
   padding-top: 20px;
 }
 
 #individual_file_size_chart {
-  flex-grow: 1;
   order: 2;
 }
 
@@ -133,13 +133,12 @@ html {
   position: relative;
 }
 
-#history_completed_tasks_table_wrapper {
-  flex-grow: 2;
-  order: 1;
-}
-
 #history_completed_tasks_table tbody tr {
   cursor: pointer;
+}
+
+#history_completed_tasks_table_wrapper {
+  order: 1;
 }
 
 .q-badge {
@@ -189,9 +188,9 @@ html {
   }
 
   .tables {
-    padding-top: 0;
     gap: 0;
-    flex-wrap: wrap;
+    grid-template-columns: 100%;
+    padding-top: 0;
   }
 
   #individual_file_size_chart {
@@ -203,7 +202,6 @@ html {
   }
 
   #history_completed_tasks_table_wrapper {
-    flex-grow: 1;
     order: 2;
   }
 
