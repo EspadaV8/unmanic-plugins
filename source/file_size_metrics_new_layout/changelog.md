@@ -1,8 +1,9 @@
-**<span style="color:#56adda">0.1.1</span>**
-- Include an underline for the file names to make the clickability clearer
-
 **<span style="color:#56adda">0.1.0</span>**
 - New layout to try and make better use of space
+
+**<span style="color:#56adda">0.0.12</span>**
+- Correct spacing between the bars on the size charts
+- Reduce the height of the top chart area
 
 **<span style="color:#56adda">0.0.11</span>**
 - File Size charts now support the dark theme

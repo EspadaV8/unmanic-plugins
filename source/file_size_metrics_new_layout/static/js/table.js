@@ -1,9 +1,9 @@
-const viewConversionDetails = function (jobId) {
+const viewConversionDetails = (jobId) => {
   $("#selected_task_id").val(jobId).triggerHandler("change");
 };
 
 const CompletedTasksDatatable = (function () {
-  const recordName = function (basename, type, { task_success } = row) {
+  const recordName = (basename, type, { task_success } = row) => {
     if (task_success) {
       return `<span class="q-badge success"></span> <span class="name" title="View Details">${basename}</span>`;
     }
@@ -11,7 +11,7 @@ const CompletedTasksDatatable = (function () {
     return `<span class="q-badge failed"></span> <span class="name" title="View Details">${basename}</span>`;
   };
 
-  const buildTable = function () {
+  const buildTable = () => {
     const table = $("#history_completed_tasks_table").DataTable({
       autoWidth: false,
       processing: true,
@@ -19,7 +19,7 @@ const CompletedTasksDatatable = (function () {
       ajax: {
         url: "list/", // ajax source
         type: "GET", // request type
-        data: function (data) {
+        data: (data) => {
           return {
             data: JSON.stringify(data),
           };
@@ -74,7 +74,7 @@ const CompletedTasksDatatable = (function () {
 
   return {
     //main function to initiate the module
-    init: function () {
+    init: () => {
       buildTable();
     },
   };

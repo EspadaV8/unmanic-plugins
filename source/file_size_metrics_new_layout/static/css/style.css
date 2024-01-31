@@ -115,13 +115,13 @@ html {
 }
 
 .charts {
-  max-height: 550px;
+  max-height: 335px;
 }
 
 .tables {
   display: grid;
   gap: 10px;
-  grid-template-columns: 66% 34%;
+  grid-template-columns: 66% 33%;
   padding-top: 20px;
 }
 
@@ -157,7 +157,7 @@ html {
   background: var(--q-positive);
 }
 
-.q-badge.success:after {
+.q-badge.success::after {
   content: "Success";
 }
 
@@ -165,7 +165,7 @@ html {
   background: var(--q-negative);
 }
 
-.q-badge.failed:after {
+.q-badge.failed::after {
   content: "Failed";
 }
 
@@ -179,11 +179,11 @@ html {
     position: inherit;
   }
 
-  .q-badge.success:after {
+  .q-badge.success::after {
     content: "✔";
   }
 
-  .q-badge.failed:after {
+  .q-badge.failed::after {
     content: "✖";
   }
 

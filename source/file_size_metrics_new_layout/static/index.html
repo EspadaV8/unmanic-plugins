@@ -17,7 +17,30 @@
     </script>
 
     <title>File Size Metrics | Unmanic</title>
-    <link rel="shortcut icon" href="static/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="128x128"
+      href="../../icons/favicon-128x128.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="../../icons/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../../icons/favicon-16x16.png"
+    />
 
     <link
       rel="stylesheet"
@@ -83,7 +106,7 @@
               </div>
 
               <div id="selected_task_name" class="car-header">
-                (Select a task from the table below)
+                (Select a task from the table)
               </div>
             </div>
           </div>
@@ -128,46 +151,41 @@
       type="text/javascript"
       src="./static/vendor/highcharts/highcharts-more.js?{cache_buster}"
     ></script>
-    <script>
-      var coll = document.getElementsByClassName("collapsible");
-      var i;
-
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-
-          contentVisibility = "none";
-
-          if (this.classList.contains("active")) {
-            contentVisibility = "block";
-          }
-
-          content.style.display = contentVisibility;
-        });
-      }
-    </script>
 
     <script
       type="text/javascript"
       src="./static/js/table.js?{cache_buster}"
     ></script>
-
     <script
       type="text/javascript"
       src="./static/js/filesizechart.js?{cache_buster}"
     ></script>
 
     <script>
-      window.onload = function funLoad() {
-        CompletedTasksDatatable.init();
-        CompletedTasksFileSizeDiffChart.init();
-      };
-    </script>
+      ((window, document) => {
+        const coll = document.getElementsByClassName("collapsible");
 
-    <script>
-      (function (window) {
-        window.onscroll = function (e) {
+        for (let i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function () {
+            const content = this.nextElementSibling;
+            let contentVisibility = "none";
+
+            this.classList.toggle("active");
+
+            if (this.classList.contains("active")) {
+              contentVisibility = "block";
+            }
+
+            content.style.display = contentVisibility;
+          });
+        }
+
+        window.onload = () => {
+          CompletedTasksDatatable.init();
+          CompletedTasksFileSizeDiffChart.init();
+        };
+
+        window.onscroll = (e) => {
           const chart = $("#individual_file_size_chart .card:first")[0];
           const topContentHeight = $(".top-content").height();
 
@@ -179,7 +197,7 @@
 
           chart.style.top = newTop;
         };
-      })(window);
+      })(window, document);
     </script>
     <!-- ######## END SCRIPTS -->
   </body>
